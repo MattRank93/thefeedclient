@@ -1,25 +1,27 @@
 import React from 'react';
+import {Route, Routes} from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+
 import logo from './logo.svg';
 import './App.css';
 
+import LandingPage from "./views/LandingPage.js";
+import Login from "./views/Login";
+import Profile from "./views/Profile"
+import Register from "./views/Register";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+          <Route path={"/"} element={<LandingPage/>}/>
+          <Route path= {"/register"} element={<Register/>} />
+          <Route path= {"/login"} element={<Login/>} />
+          <Route path= {"/profile"} element={<Profile/>} />
+
+          {/*<Route exact path= {"/forgot"} component={ResetPassword} />*/}
+          {/*<PrivateRoute path= {"/maps"} loggedIn={currentUser} component={GoogleMapSDK}  />*/}
+          {/*<PrivateRoute path= {"/profile"} loggedIn={currentUser} component={Profile}  />*/}
+      </Routes>
   );
 }
 
