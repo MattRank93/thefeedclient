@@ -24,11 +24,9 @@ const NavigationBar = () => {
                 <Button className={classes.button} href={'/login'}>
                     Login
                 </Button>
-
                 <Button className={classes.button} href={'/profile'}>
                     Profile
                 </Button>
-
                 <Button className={classes.button} href={'/test'}>
                     Test
                 </Button>
