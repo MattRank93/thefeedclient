@@ -18,11 +18,9 @@ const NavigationBar = () => {
                     Home
                 </Button>
                 </h1>
-
                 <Button className={classes.button} href={'/register'}>
                     Register
                 </Button>
-
                 <Button className={classes.button} href={'/login'}>
                     Login
                 </Button>
