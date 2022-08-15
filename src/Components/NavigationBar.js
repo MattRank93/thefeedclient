@@ -18,23 +18,26 @@ const NavigationBar = () => {
                     Home
                 </Button>
                 </h1>
-            </div>
-            <div>
+
                 <Button className={classes.button} href={'/register'}>
                     Register
                 </Button>
-            </div>
-            <div>
+
                 <Button className={classes.button} href={'/login'}>
                     Login
                 </Button>
-            </div>
-            <div>
+
                 <Button className={classes.button} href={'/profile'}>
                     Profile
                 </Button>
+
+                <Button className={classes.button} href={'/test'}>
+                    Test
+                </Button>
             </div>
+            <hr />
         </div>
+
     )
 }
 
