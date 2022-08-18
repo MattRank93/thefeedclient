@@ -1,7 +1,8 @@
+import React, {useState} from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import {Navigation} from "@material-ui/icons";
-import {Button} from "@mui/material";
 import NavigationBar from "../Components/NavigationBar";
+import {Button, Grid, TextField} from "@mui/material";
+import AuthService from "../services/auth.service";
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -9,12 +10,74 @@ const Login = () => {
     // const classes = useStyles();
     const classes = useStyles();
 
+    const [logins, setLogins] = useState({
+        username: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setLogins(user => ({...user, [name]: value}));
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        AuthService.login(logins).then(
+            (response) => {
+                console.log(response)
+            },
+            (error) => {
+                const resMessage =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+                console.log(resMessage)
+            }
+        );
+    };
 
     return (
         <div>
             <NavigationBar></NavigationBar>
             <h1>LOGIN</h1>
+            <Grid  item align="center">
+                <form onSubmit={handleClick}>
+                    <hr />
+                    <label>Enter your email and password when you are ready:
+                        <br/>
+                        <TextField
+                            id="username"
+                            label="username"
+                            type="text"
+                            name="username"
+                            autoFocus
+                            required
+                            value={logins.username || ""}
+                            onChange={handleChange}
+                        />
+                        <br />
+                        <TextField
+                            id="password"
+                            label="password"
+                            type="text"
+                            name="password"
+                            required
 
+                            value={logins.password || ""}
+                            onChange={handleChange}
+                        />
+                        <br />
+                        <Button
+                            color="primary"
+                            type="submit"
+                            variant="contained" >Login</Button>
+                    </label>
+
+                    {/*<inputs value={inputs} />*/}
+                </form>
+            </Grid>
         </div>
     )
 }
