@@ -8,22 +8,20 @@ const useStyles = makeStyles((theme) => ({}));
 
 const Register = (props) => {
     const classes = useStyles();
-    const [inputs, setInputs] = useState({        firstname: '',
+    const [inputs, setInputs] = useState({
+        firstname: '',
         lastname: '',
         email: '',
         password: '',
         phone: '',
-        company: ''});
+        roles: ["user"]
+    });
 
     const handleChange = (e) => {
         const {name, value} = e.target;
         setInputs(user => ({...user, [name]: value}));
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        alert(inputs.name.value);
-    }
 
     /*
     enable this function affter login works
