@@ -28,8 +28,8 @@ function Test() {
             {/*</select>*/}
             <br />
             <br />
-            {/*<WebGL/>*/}
-            <canvas id="webgl" width="400" height="400" style={{border: '1px solid black'}}>t</canvas>
+            <WebGL/>
+            {/*<canvas id="webgl" width="400" height="400" style={{border: '1px solid black'}}>t</canvas>*/}
             <br />
             <i>demo starts here</i>
         </form>

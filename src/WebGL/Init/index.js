@@ -1,7 +1,7 @@
-
+import GLC from "../GLCommander";
 
 export default (id) => {
-    const canvas = document.querySelector('#${id}}');
+    const canvas = document.querySelector(id);
 
     if(!canvas) {
         return;
@@ -12,4 +12,7 @@ export default (id) => {
     if(!gl) {
         return;
     }
+
+    GLC.init(gl);
+    GLC.clear(1.0, 0.0, 0.0, 1.0);
 }
