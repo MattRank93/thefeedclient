@@ -1,7 +1,7 @@
 
 
 import React, {useState} from "react";
-import ReactDOM from 'react-dom/client';
+import WebGL from '../WebGL/webgl'
 import NavigationBar from "../Components/NavigationBar";
 
 function Test() {
@@ -12,21 +12,26 @@ function Test() {
 
     const handleChange = (event) => {
         setTextarea(event.target.value)
-
         setMyCar(event.target.value)
     }
-    return (
 
+
+    return (
         <form>
             <NavigationBar/>
-
             <textarea value={textarea} onChange={handleChange} />
             <br />
-            <select value={myCar} onChange={handleChange}>
-                <option value="Ford">Ford</option>
-                <option value="Volvo">Volvo</option>
-                <option value="Fiat">Fiat</option>
-            </select>
+            {/*<select value={myCar} onChange={handleChange}>*/}
+            {/*    <option value="Ford">Ford</option>*/}
+            {/*    <option value="Volvo">Volvo</option>*/}
+            {/*    <option value="Fiat">Fiat</option>*/}
+            {/*</select>*/}
+            <br />
+            <br />
+            {/*<WebGL/>*/}
+            <canvas id="webgl" width="400" height="400" style={{border: '1px solid black'}}>t</canvas>
+            <br />
+            <i>demo starts here</i>
         </form>
     )
 }

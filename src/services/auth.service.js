@@ -12,6 +12,9 @@ const register = (submit) => {
 const login = (submit) => {
     return axios.patch(API_URL + "authenticate/login", submit, {headers: ""})
         .then((response) => {
+            if (response.data.token) {
+                localStorage.setItem("user", JSON.stringify(response.data));
+            }
             return response.data;
         });
 };

@@ -3,17 +3,33 @@ import {makeStyles} from "@material-ui/core/styles";
 import NavigationBar from "../Components/NavigationBar";
 import {Button, Grid, TextField} from "@mui/material";
 import AuthService from "../services/auth.service";
+import {useSelector} from "react-redux";
 
 const useStyles = makeStyles((theme) => ({}));
+
+
+const required = (value) => {
+    if (!value) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This field is required!
+            </div>
+        );
+    }
+};
+
 
 const Login = () => {
     // const classes = useStyles();
     const classes = useStyles();
+    const {isLoggedIn} = useSelector(state => state.auth);
 
     const [logins, setLogins] = useState({
         username: '',
         password: ''
     });
+
+
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -24,6 +40,7 @@ const Login = () => {
         e.preventDefault();
         AuthService.login(logins).then(
             (response) => {
+
                 console.log(response)
             },
             (error) => {

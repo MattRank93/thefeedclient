@@ -3,10 +3,14 @@ import {makeStyles} from "@material-ui/core/styles";
 import NavigationBar from "../Components/NavigationBar";
 import {Button, Grid, TextField} from "@mui/material";
 import AuthService from "../services/auth.service";
+import {Redirect} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({}));
 
 const Register = (props) => {
+
+    const [isLoggedIn, setisLoggedIn] = useState(null);
+
     const classes = useStyles();
     const [inputs, setInputs] = useState({
         firstname: '',
@@ -26,8 +30,9 @@ const Register = (props) => {
     /*
     enable this function affter login works
      */
-    // if (isLoggedIn) {
-    //     return <Redirect to="/profile"/>;
+    // if (isLoggedIn) {} else{
+    //     // return <Redirect to="/profile"/>;
+    //     navigate("/dashboard");
     // }
 
     const handleClick = (e) => {
